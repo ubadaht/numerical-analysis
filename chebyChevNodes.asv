@@ -1,0 +1,19 @@
+% Number of Chebyshev nodes
+n = 21;
+
+% Interval [a, b]
+a = -1;
+b = 1;
+
+f = @(x) sin(2 * pi * x);
+% Calculate Chebyshev nodes using the given formula
+cheb_nodes_formula = (a + b)/2 - (b - a)/2 * cos(pi * (1:n)/ n);
+
+% Evaluate the function at Chebyshev nodes
+f_values = f();
+
+% Display the results
+disp('Chebyshev Nodes (using the given formula):');
+disp(cheb_nodes_formula);
+disp('Function Values at Chebyshev Nodes (using the given formula):');
+disp(f_values_formula);

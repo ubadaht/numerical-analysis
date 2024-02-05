@@ -1,0 +1,39 @@
+clear all; clc; close all;
+
+
+f = @(x) (x-cos(x));
+
+
+
+function [root, count] = bisec(f, a, b, tol)
+    count = 0;
+    fa = f(a);
+    fb = f(b);
+
+    % Check if the initial condition satisfies f(a)f(b) < 0
+    if fa * fb > 0
+        disp('Initial condition does not satisfy f(a)f(b) < 0');
+        return;
+    end
+
+    % Bisection method loop
+    while abs(b - a) > tol
+        mid = (a + b) / 2;
+        fmid = f(mid);
+
+        % Update the interval [a, b] based on the sign change
+        if fa * fmid < 0
+            fb = fmid;
+            b = mid;
+        else
+            a = mid;
+            fa = fmid;
+        end
+
+        % Increment the iteration count
+        count = count + 1;
+    end
+
+    % Compute the root as the midpoint of the final interval
+    root = (a + b) / 2;
+end
