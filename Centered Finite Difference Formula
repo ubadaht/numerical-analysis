@@ -1,0 +1,24 @@
+Centered Finite Difference Formula
+To compute the third derivative scheme \( \delta^3 u_i \) at a point \( u_i \) using the centered finite difference formula \( \delta(\delta(\delta u_i)) \), we'll apply the centered finite difference formula for the first derivative (\( \delta u_i \)) three times.
+
+Let's denote the step size as \( h \).
+
+1. First Derivative: \( \delta u_i = \frac{1}{2h} (u_{i+1} - u_{i-1}) \)
+
+2. Second Derivative: \( \delta^2 u_i = \frac{1}{2h} (\delta u_{i+1} - \delta u_{i-1}) \)
+
+3. Third Derivative: \( \delta^3 u_i = \frac{1}{2h} (\delta^2 u_{i+1} - \delta^2 u_{i-1}) \)
+
+Now, let's expand \( \delta^2 u_{i+1} \) and \( \delta^2 u_{i-1} \) using the formula for the second derivative:
+
+\[ \delta^2 u_{i+1} = \frac{1}{2h} (\delta u_{i+2} - \delta u_i) \]
+
+\[ \delta^2 u_{i-1} = \frac{1}{2h} (\delta u_i - \delta u_{i-2}) \]
+
+Substituting these into the expression for the third derivative:
+
+\[ \delta^3 u_i = \frac{1}{2h} \left( \frac{1}{2h} (\delta u_{i+2} - \delta u_i) - \frac{1}{2h} (\delta u_i - \delta u_{i-2}) \right) \]
+
+\[ \delta^3 u_i = \frac{1}{4h^2} (\delta u_{i+2} - 2\delta u_i + \delta u_{i-2}) \]
+
+This is the centered finite difference formula for the third derivative \( \delta^3 u_i \) at the point \( u_i \). It involves evaluating the first derivative at \( u_{i+2} \), \( u_i \), and \( u_{i-2} \), and then combining these values to compute the third derivative.
